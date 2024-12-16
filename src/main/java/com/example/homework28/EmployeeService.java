@@ -2,50 +2,52 @@ package com.example.homework28;
 
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
+
+
 
 @Service
-public class EmployeeService implements EmployeeServiceInter{
+public class EmployeeService {
 
+    private Map<String, Employee> employees;
 
-    private List<Employee> employees = List.of(
-            new Employee("Николаев Пётр Сергеевик", 1, 48000),
-            new Employee("Иванов Сергей иванович", 1, 69000),
-            new Employee("Семёнов Андрей Петрович", 2, 67000),
-            new Employee("Антонов Михаил Сергеевич", 2, 100000),
-            new Employee("Рудаков Анатолий Петрович", 2, 54000),
-            new Employee("Гаврилов Сергей Анатольевич", 3, 44000),
-            new Employee("Панфилоа Алексей Семёнович", 3, 67000),
-            new Employee("Талапин Вадим Евгеньевич", 4, 48000),
-            new Employee("Короленко Вячеслав Петрович", 4, 89000),
-            new Employee("Васильев Василий Васильевич", 5, 99000),
-            new Employee("Анатольев Афанасий Павлович", 5, 35000)
-    );
-
-    @Override
-    public Employee getEmployeeMaxSalary(int department) {
-        return employees.stream()
-                .filter(employee -> employee.getDepartment() == department)
-                .max(Comparator.comparingInt(employee -> employee.getSalary()))
-                .orElse(null);
+    public EmployeeService() {
+        this.employees = new HashMap<>();
     }
 
-    @Override
-    public Employee getEmployeeMinSalary(int department) {
-        return employees.stream()
-                .filter(employee -> employee.getDepartment() == department)
-                .min(Comparator.comparingInt(employee -> employee.getSalary()))
-                .orElse(null);
+    public void addEmployee (Employee employee){
+        employees.put(employee.getFullName(),employee);
     }
 
-    @Override
-    public List<Employee> getAllEmployeesByDep(int department) {
-        return employees.stream()
-                .filter(employee -> employee.getDepartment() == department)
-                .collect(Collectors.toUnmodifiableList());
+    public Employee findEmployee (String fullName){
+        return employees.get(fullName);
     }
 
+
+    public void deleteEmployee (String fullName){
+        employees.remove(fullName);
+    }
+
+
+    public List<Employee> getAllEmployees (){
+        return  new ArrayList<>(employees.values());
+    }
+
+
+    public void fullfillData (){
+        employees.put("Иванов Иван Иванович",new Employee("Иванов Иван Иванович","1",35000));
+        employees.put("Семёнов Андрей Петрович",new Employee("Семёнов Андрей Петрович","1",38000));
+        employees.put("Антонов Михаил Сергеевич",new Employee("Антонов Михаил Сергеевич","2",40000));
+        employees.put("Гаврилов Сергей Анатольевич",new Employee("Иванов Иван Иванович","2",39000));
+        employees.put("Короленко Вячеслав Петрович",new Employee("Короленко Вячеслав Петрович","3",28000));
+        employees.put("Пелепенко Артур Тигранович",new Employee("Короленко Вячеслав Петрович","4",42000));
+        employees.put("Кизляр Егор Антонович",new Employee("Короленко Вячеслав Петрович","5",40000));
+        employees.put("Кожин Владимир Владимироваич",new Employee("Короленко Вячеслав Петрович","5",46000));
+    }
 
 }
+
+

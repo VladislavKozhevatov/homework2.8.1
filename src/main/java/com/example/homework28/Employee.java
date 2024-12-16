@@ -3,18 +3,18 @@ package com.example.homework28;
 public class Employee {
 
     private String fullName;
-    private int department;
+    private String department;
     private  int salary;
 
 
-    public Employee (String fullName, int department, int salary) {
+    public Employee(String fullName, String department, int salary) {
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
     }
 
 
-    public int getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
