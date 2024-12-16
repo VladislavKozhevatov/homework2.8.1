@@ -43,5 +43,6 @@ public class DepartmentController {
             return departmentService.getAllEmployeesByDepartments();
         }
         return departmentService.getAllEmployeesByDepartment(departmentId);
+
     }
 }

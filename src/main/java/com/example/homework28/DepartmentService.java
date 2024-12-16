@@ -52,6 +52,8 @@ public class DepartmentService  {
         List <Employee> employees = employeeService.getAllEmployees();
         return employees.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment));
+
+
     }
 }
 

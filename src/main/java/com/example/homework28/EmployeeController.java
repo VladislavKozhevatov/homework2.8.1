@@ -21,5 +21,6 @@ public class EmployeeController {
         Employee employee = new Employee(fullName,department,salary);
         employeeService.addEmployee(employee);
         return employee;
+
     }
 }
