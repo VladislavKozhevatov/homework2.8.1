@@ -32,8 +32,6 @@ public class Employee {
                 ", Имя сотрудника = " + fullName + '\'' +
                         ", отдел = " + department +
                         ", зарплата = " + salary + " рублей";
-
-
     }
 
 }

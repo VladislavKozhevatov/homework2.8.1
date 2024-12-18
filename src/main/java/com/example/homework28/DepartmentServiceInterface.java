@@ -7,5 +7,4 @@ public interface DepartmentServiceInterface {
 
     Employee getEmployeeMaxSalary (int department);
     Employee getEmployeeMinSalary (int department);
-
 }
