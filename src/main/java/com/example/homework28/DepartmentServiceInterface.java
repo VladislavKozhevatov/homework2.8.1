@@ -1,6 +1,5 @@
 package com.example.homework28;
 
-
 import java.util.List;
 
 public interface DepartmentServiceInterface {
